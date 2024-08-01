@@ -12,7 +12,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Welcome to Next.js!</h1>
+      <h1>Welcome to</h1>
       <button onClick={togglePopup}>Show Popup</button>
       {showPopup && (
         <div className="overlay">
@@ -21,7 +21,7 @@ const HomePage = () => {
               &times;
             </button>
             <div className="content">
-              <h2>Popup Content</h2>
+              <h2>Pop up</h2>
               <p>This is a simple popup component in Next.js.</p>
             </div>
           </div>
