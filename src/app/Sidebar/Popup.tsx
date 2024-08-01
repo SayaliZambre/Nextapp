@@ -22,7 +22,7 @@ const HomePage = () => {
             </button>
             <div className="content">
               <h2>Pop up</h2>
-              <p>This is a simple popup component in Next.js.</p>
+              <p>This is a simple </p>
             </div>
           </div>
         </div>
