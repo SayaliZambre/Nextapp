@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent, Typography, makeStyles } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+// import CloseIcon from '@material-ui/icons/Close';
 // import Controls from './controls/Controls'; // Ensure this path is correct
 
 const useStyles = makeStyles((theme) => ({
