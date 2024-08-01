@@ -1,45 +1,72 @@
-import React from 'react';
-import { Dialog, DialogTitle, DialogContent, Typography, makeStyles } from '@material-ui/core';
-// import CloseIcon from '@material-ui/icons/Close';
-// import Controls from './controls/Controls'; // Ensure this path is correct
+// pages/index.js
 
-const useStyles = makeStyles((theme) => ({
-  dialogWrapper: {
-    padding: theme.spacing(2),
-    position: 'absolute',
-    top: theme.spacing(5),
-  },
-  dialogTitle: {
-    paddingRight: '0px',
-  },
-}));
 
-const Popup = (props: { title: any; children: any; openPopup: any; setOpenPopup: any; }) => {
-  const { title, children, openPopup, setOpenPopup } = props;
-  const classes = useStyles();
+import React, { useState } from 'react';
+
+const HomePage = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   return (
-    <Dialog open={openPopup} maxWidth="md" classes={{ paper: classes.dialogWrapper }}>
-      <DialogTitle className={classes.dialogTitle}>
-        <div style={{ display: 'flex' }}>
-          <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
-            {title}
-          </Typography>
-          {/* <Controls.ActionButton
-            color="secondary"
-            onClick={() => {
-              setOpenPopup(false);
-            }}
-          >
-            <CloseIcon />
-          </Controls.ActionButton> */}
+    <div>
+      <h1>Welcome to Next.js!</h1>
+      <button onClick={togglePopup}>Show Popup</button>
+      {showPopup && (
+        <div className="overlay">
+          <div className="popup">
+            <button className="closeButton" onClick={togglePopup}>
+              &times;
+            </button>
+            <div className="content">
+              <h2>Popup Content</h2>
+              <p>This is a simple popup component in Next.js.</p>
+            </div>
+          </div>
         </div>
-      </DialogTitle>
-      <DialogContent dividers>
-        {children}
-      </DialogContent>
-    </Dialog>
+      )}
+
+      <style jsx>{`
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+        }
+
+        .popup {
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          max-width: 500px;
+          width: 100%;
+          position: relative;
+        }
+
+        .closeButton {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+        }
+
+        .content {
+          margin-top: 20px;
+        }
+      `}</style>
+    </div>
   );
 };
 
-export default Popup;
+export default HomePage;
